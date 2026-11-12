@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Zotero öffnen</title>
+</head>
+<body>
+  <p id="msg">Zotero wird geöffnet …</p>
+  <script>
+    const u = new URLSearchParams(location.search).get("u");
+    if (u && u.startsWith("zotero://")) {
+      location.href = u;
+      document.getElementById("msg").innerHTML =
+        'Zotero wird geöffnet … Falls nicht: <a href="' + u + '">hier klicken</a>. Den Tab kannst du schließen.';
+    } else {
+      document.getElementById("msg").textContent = "Kein gültiger Zotero-Link.";
+    }
+  </script>
+</body>
+</html>
